@@ -1,19 +1,16 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv';
-
 import nongSanRoutes from './routes/nongSanRoutes.js';
 import loaiNongSanRoutes from './routes/loaiNongSanRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-
-// Load environment variables
+import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
-app.use(cors()); // Add CORS middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
