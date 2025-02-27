@@ -1,12 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import { mongoURI } from './config/database.js';
+import dotenv from 'dotenv';
+
 import nongSanRoutes from './routes/nongSanRoutes.js';
 import loaiNongSanRoutes from './routes/loaiNongSanRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
-console.log("MongoDB URI:", mongoURI);
+// Load environment variables
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -22,7 +25,7 @@ app.use('/nongsan', nongSanRoutes);
 app.use('/loainongsan', loaiNongSanRoutes);
 app.use('/users', userRoutes);
 
-mongoose.connect(mongoURI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(port, () => {
