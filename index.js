@@ -6,6 +6,7 @@ import nongSanRoutes from './routes/nongSanRoutes.js';
 import loaiNongSanRoutes from './routes/loaiNongSanRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
+console.log("MongoDB URI:", mongoURI);
 const app = express();
 const port = process.env.PORT || 3000;
 
