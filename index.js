@@ -4,6 +4,7 @@ import cors from 'cors';
 import nongSanRoutes from './routes/nongSanRoutes.js';
 import loaiNongSanRoutes from './routes/loaiNongSanRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import khaoSatRoutes from './routes/khaoSatRoutes.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 app.use('/nongsan', nongSanRoutes);
 app.use('/loainongsan', loaiNongSanRoutes);
 app.use('/users', userRoutes);
+app.use('/khaosat', khaoSatRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

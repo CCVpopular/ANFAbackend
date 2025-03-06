@@ -5,9 +5,8 @@ const router = express.Router();
 
 router.get('/check/:id', async (req, res) => {
   try {
-    res.set('Cache-Control', 'no-store');
     const user = await User.findOne({ id: req.params.id });
-    res.status(200).json({ 
+    res.json({ 
       exists: !!user,
       role: user ? user.role : null 
     });
