@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/check/:id', async (req, res) => {
   try {
     const user = await User.findOne({ id: req.params.id });
-    res.json({ 
+    res.status(200).json({ 
       exists: !!user,
       role: user ? user.role : null 
     });
